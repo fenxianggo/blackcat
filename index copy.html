@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>松露</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>松露の家</h1>
+      <p>一隻黑色胖虎的生活</p>
+    </header>
+
+    <section class="gallery">
+      <!-- 每張圖包 a，讓燈箱生效 -->
+      <div class="card">
+        <a href="images/1.png" class="lightbox-trigger">
+          <img src="images/1.png" alt="黑皮" />
+        </a>
+        <div class="card-text">
+          <h2>睡睡虎</h2>
+          <p></p>
+        </div>
+      </div>
+      <div class="card">
+        <a href="images/2.png" class="lightbox-trigger">
+          <img src="images/2.png" alt="黑貓2" />
+        </a>
+        <div class="card-text">
+          <h2>哈欠虎</h2>
+          <p>觀察鳥兒的小獵人。</p>
+        </div>
+      </div>
+      <!-- 依此類推 -->
+      <div class="card">
+        <a href="images/3.png" class="lightbox-trigger">
+          <img src="images/3.png" alt="黑貓3" />
+        </a>
+        <div class="card-text">
+          <h2>躲</h2>
+          <p>睡姿展示</p>
+        </div>
+      </div>
+      <div class="card">
+        <a href="images/4.png" class="lightbox-trigger">
+          <img src="images/4.png" alt="黑貓4" />
+        </a>
+        <div class="card-text">
+          <h2>誰的毛</h2>
+          <p>帥氣巡邏</p>
+        </div>
+      </div>
+      <div class="card">
+        <a href="images/5.png" class="lightbox-trigger">
+          <img src="images/5.png" alt="黑皮" />
+        </a>
+        <div class="card-text">
+          <h2>你的毛</h2>
+          <p>=3=</p>
+        </div>
+      </div>
+      <div class="card">
+        <a href="images/6.png" class="lightbox-trigger">
+          <img src="images/6.png" alt="黑貓2" />
+        </a>
+        <div class="card-text">
+          <h2>還玩</h2>
+          <p>觀察鳥兒的小獵人。</p>
+        </div>
+      </div>
+      <div class="card">
+        <a href="images/7.png" class="lightbox-trigger">
+          <img src="images/7.png" alt="黑貓3" />
+        </a>
+        <div class="card-text">
+          <h2>喵嗚</h2>
+          <p>睡姿展示</p>
+        </div>
+      </div>
+      <div class="card">
+        <a href="images/8.png" class="lightbox-trigger">
+          <img src="images/8.png" alt="黑貓4" />
+        </a>
+        <div class="card-text">
+          <h2>躲躲虎</h2>
+          <p>帥氣巡邏</p>
+        </div>
+      </div>
+      <div class="card">
+        <a href="images/9.png" class="lightbox-trigger">
+          <img src="images/9.png" alt="黑貓4" />
+        </a>
+        <div class="card-text">
+          <h2>便便</h2>
+          <p>帥氣巡邏</p>
+        </div>
+      </div>
+    </section>
+
+<footer>
+  <button id="morePhotosBtn">更多照片即將上架</button>
+</footer>
+</div>
+
+  <!-- 燈箱 -->
+  <div class="lightbox" id="lightbox">
+    <span class="close-btn" id="lightboxCloseBtn">&times;</span>
+    <img src="" alt="" id="lightboxImg" />
+  </div>
+
+  <script>
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const closeBtn = document.getElementById("lightboxCloseBtn");
+
+    document.querySelectorAll(".lightbox-trigger").forEach(link => {
+      link.addEventListener("click", e => {
+        e.preventDefault();
+        const src = link.getAttribute("href");
+        const alt = link.querySelector("img").alt;
+        lightboxImg.src = src;
+        lightboxImg.alt = alt;
+        lightbox.classList.add("active");
+      });
+    });
+
+    closeBtn.addEventListener("click", () => {
+      lightbox.classList.remove("active");
+      lightboxImg.src = "";
+    });
+
+    lightbox.addEventListener("click", e => {
+      if (e.target === lightbox) {
+        lightbox.classList.remove("active");
+        lightboxImg.src = "";
+      }
+    });
+
+document.getElementById("morePhotosBtn").addEventListener("click", () => {
+  lightboxImg.src = "images/10.png";
+  lightboxImg.alt = "喵嗚"; // 可以加個描述
+  lightbox.classList.add("active");
+});
+  </script>
+</body>
+</html>
